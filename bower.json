@@ -1,0 +1,21 @@
+{
+  "name": "tuesday",
+  "homepage": "https://github.com/danielopatich/homework_week2_tuesday",
+  "authors": [
+    "Daniel Opatich <daniel.opatich@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "neat": "~1.7.2"
+  }
+}
