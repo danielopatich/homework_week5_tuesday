@@ -1,57 +1,65 @@
 // Define a new "recipe" that can cook late
-var PageView = Backbone.View.extend({
+var mainPage = Backbone.View.extend({
   tagName: 'section',
-  className: 'filling',
-  template: _.template($('#pageTemplate').html()),
-
-  initialize: function(options){
-    this.page = options.page;
-  },
+  className: 'begin',
+  template: _.template($('#menuFace').html()),
 
   render: function() {
-    this.$el.html(this.template({page: this.page}));
-  },
+    this.$el.html(this.template({begin: this.page}));
+  }
 
+});
 
-var AppRouter = Backbone.Router.extend({
+var gameRouter = Backbone.Router.extend({
   routes: {
-    "": "menu",
-    "menu": "menu",
-    "gameplay": "gamplay",
+    ""           : "home",
+    "play"       : "play",
     "leaderboard": "leaderboard",
-    "settings": "settings"
-  },
+    "settings"   : "settings",
+    "menu"       : "menu"
+    },
 
-  menu: function() {
-    data.forEach(function(page){
-      $('.filling').append('<div><a href="#pages/' hey '">' whats up '</a></div>');
-    });
-  },
+  home: function(){
+    setTimeout(function(){
 
-  leaderboard: function() {
-    $('.filling').html(''),
-    alert('hey u clicked me')
-    });
+      var view = new mainPage();
+
+      view.render();
+      $('.mainGame').html(view.$el);
+      // $('.mainGame').prepend('<div class="spinningWheel"><img src="https://myaccount.wigan.gov.uk/web/Includes/Images/loader.gif" alt="" /></div>')
+    }, 2500);
+    // event.preventDefault();
   },
 
   settings: function() {
+    var view = new mainPage();
+    view.render();
 
-    });
+    $('.mainGame').html(view.$el);
+    $('.mainGame').append('<div class="menuTxt" >Music ON/OFF</div><br>');
+    $('.mainGame').append('<div class="menuTxt" >SFX ON/OFF</div>');
+    $('.mainGame').prepend('<div id="return" ><a href="#">Return to Menu</a></div>');
   },
 
+  leaderboard: function() {
+    var view = new mainPage();
+    view.render();
 
-  viewPage: function(pageId) {
-     .done(function(page){
-        var view = new PageView({
-          page: page
-        });
+    $('.mainGame').html(view.$el);
+    $('.mainGame').append('<div class="menuTxt" >Top Score: ME!</div>');
+    $('.mainGame').prepend('<div id="return" ><a href="#">Return to Menu</a></div>');
+  },
 
-        view.render();
-        $('.filling').html(view.$el);
-      });
-  }
+  play: function() {
+    var view = new mainPage();
+    view.render();
+
+    $('.mainGame').html(view.$el);
+    $('.mainGame').append('<div class="menuTxt" >gameplay...</div>');
+    $('.mainGame').prepend('<div id="return" ><a href="#">Return to Menu</a></div>');
+    // $('.mainGame').append('<a href="#">' + Main Menu + '</a>');
+  },
 });
 
-var router = new AppRouter();
-
+new gameRouter();
 Backbone.history.start();

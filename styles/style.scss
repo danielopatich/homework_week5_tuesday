@@ -1,0 +1,52 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+// $visual-grid: true;
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  font-family: Trattatello;
+}
+
+body {
+  background-color: #282C34;
+}
+
+#wrapper {
+  @include outer-container;
+  text-align: center;
+  margin-top: 20px;
+  background-image: url(http://i.imgur.com/fjBiyTr.gif);
+  opacity: .8;
+  background-color: black;
+  height: 600px;
+  border: 1px solid gray;
+  border-radius: 50px;
+  a {
+    font-size: 40px;
+    color: #E2C08D;
+    text-decoration: none;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+
+.menuTxt {
+  display: inline-block;
+  color: #fff;
+  font: #fff;
+  font-size: 50px;
+}
+
+#return a {
+  font-size: 10px;
+  margin-bottom: 100px;
+  vertical-align: bottom;
+}
+
+// .mainGame {
+//   background-image: url(https://myaccount.wigan.gov.uk/web/Includes/Images/loader.gif);
+// }
